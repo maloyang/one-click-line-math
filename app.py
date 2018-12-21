@@ -252,13 +252,17 @@ def math_insert_data(my_data):
     res = my_coll.insert(my_data)
 
 def math_get_data(uuid):
-    client = MongoClient(mongo_url)
-    db = client[mongo_url.split('/')[-1]]
-    my_coll = db[uuid] #get collection
-    res = my_coll.find() #全抓
-    data = list(res)[0]
-    data.pop('_id')
-    print('data: ', data)
+    data = None
+    try:
+        client = MongoClient(mongo_url)
+        db = client[mongo_url.split('/')[-1]]
+        my_coll = db[uuid] #get collection
+        res = my_coll.find() #全抓
+        data = list(res)[0]
+        data.pop('_id')
+        print('data: ', data)
+    except Exception as e:
+        return None
     return data
 
 def math_remove_data(uuid):
