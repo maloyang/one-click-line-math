@@ -1,0 +1,18 @@
+{
+    "name": "flask line-bot demo",
+    "description": "a line-bot with math test function",
+    "repository": "https://github.com/maloyang/one-click-line-math",
+    "env": {
+        "LINE_CHANNEL_SECRET": {
+          "description": "Input your 'Channel secret'"
+        },
+        "LINE_CHANNEL_ACCESS_TOKEN": {
+            "description": "Input your 'Channel access token'"
+        }
+    },
+    "addons": [
+        {
+            "plan": "mongolab:sandbox"
+        }        
+    ]
+}
