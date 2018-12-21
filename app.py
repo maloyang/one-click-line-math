@@ -14,6 +14,8 @@ from linebot.models import (
     MessageEvent, TextMessage, TextSendMessage,
 )
 
+import random
+import time
 from pymongo import MongoClient
 
 app = Flask(__name__)
