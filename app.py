@@ -51,7 +51,7 @@ def callback():
             continue
 
         text=event.message.text
-        user_id = event['source']['userId']
+        user_id = event.source.user_id
         if math_get_data(user_id) == None:
             data = dict()
             x = random.randint(1, 10)+10
