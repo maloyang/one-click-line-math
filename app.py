@@ -231,8 +231,6 @@ def callback():
                         data['count'] = 0
                         math_insert_data(data)
 
-                        )
-
                     line_bot_api.reply_message(
                         event.reply_token,
                         TextSendMessage(text=content)
