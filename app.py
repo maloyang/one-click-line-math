@@ -51,9 +51,21 @@ def callback():
             continue
 
         text=event.message.text
-        #userId = event['source']['userId']
+        user_id = event['source']['userId']
+        if math_get_data(user_id) == None:
+            data = dict()
+            x = random.randint(1, 10)+10
+            y = random.randint(1, 10)
+            data['uuid'] = user_id
+            data['x'] = x
+            data['y'] = y
+            data['Ans'] = x+y 
+            data['count']=1
+            data['ok_count']=0
+            data['ng_count']=0
+            math_insert_data(data)
+
         if(text=='math'):
-            user_id = event.source.user_id
             content = 'hi~ [%s] 你好，開始進行數學測驗\n' %(user_id)
 
             data = None
@@ -79,10 +91,12 @@ def callback():
                 data['ng_count']=0
             else:
                 data = dict()
+                x = random.randint(1, 10)+10
+                y = random.randint(1, 10)
                 data['uuid'] = user_id
                 data['x'] = x
                 data['y'] = y
-                data['Ans'] = x+y
+                data['Ans'] = x+y 
                 data['count']=1
                 data['ok_count']=0
                 data['ng_count']=0
@@ -95,7 +109,6 @@ def callback():
                 TextSendMessage(text=content)
             )
         elif(text.startswith('#x')):
-            user_id = event.source.user_id
             content = 'hi~ [%s] 你好\n' %(user_id)
             items = text.split(',')
             x_min = int(items[1])
@@ -129,7 +142,6 @@ def callback():
                 TextSendMessage(text=content)
             )
         elif(text.startswith('#y')):
-            user_id = event.source.user_id
             content = 'hi~ [%s] 你好\n' %(user_id)
             items = text.split(',')
             y_min = int(items[1])
@@ -175,7 +187,6 @@ def callback():
                 TextSendMessage(text=content)
             )
         else:
-            user_id = event.source.user_id
             data = None
             try:
                 data = math_get_data(user_id)
