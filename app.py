@@ -231,11 +231,6 @@ def callback():
                         data['count'] = 0
                         math_insert_data(data)
 
-                        # 煙火圖 'https://i.imgur.com/mqa7jIQ.jpg'
-                        url = 'https://i.imgur.com/mqa7jIQ.jpg'
-                        image_message = ImageSendMessage(
-                            original_content_url=url,
-                            preview_image_url=url
                         )
 
                     line_bot_api.reply_message(
