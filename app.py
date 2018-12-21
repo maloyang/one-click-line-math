@@ -14,6 +14,8 @@ from linebot.models import (
     MessageEvent, TextMessage, TextSendMessage,
 )
 
+from pymongo import MongoClient
+
 app = Flask(__name__)
 
 # get channel_secret and channel_access_token from your environment variable
